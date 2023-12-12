@@ -21,7 +21,9 @@ int main(void)
 			fgets(input, sizeof(input), stdin);
 			input[strcspn(input, "\n")] = '\0';
 			/* divid string with strtok*/
+
 			char *token = strtok(input, " ");
+
 			arg_count = 0;
 
 			while (token != NULL && arg_count < MAX_ARGS - 1)
