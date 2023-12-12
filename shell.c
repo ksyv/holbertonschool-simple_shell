@@ -5,22 +5,28 @@
 #include <sys/wait.h>
 
 #define MAX_ARGS 10
-#define MAX_ARG_LENGTH 50
 
 int main(void)
 {
-	char input[MAX_ARG_LENGTH];
+	char *input;
 	char *args[MAX_ARGS];
 	int arg_count = 0;
+	ssize_t inputLength;
+	size_t inputSize = 0;
 
 	if (isatty(STDIN_FILENO)) /*if interactive*/
 	{
 		while (1)
 		{
 			printf("$ ");
-			fgets(input, sizeof(input), stdin);
-			input[strcspn(input, "\n")] = '\0';
-			/* divid string with strtok*/
+			inputLength = getline(&input, &inputSize, stdin);
+			if (inputLength == -1)
+			{
+				perror("Error reading input");
+				break;
+			}
+			input[inputLength - 1] = '\0';
+			/* divise string with strtok*/
 
 			char *token = strtok(input, " ");
 
@@ -40,7 +46,7 @@ int main(void)
 
 				if (pid == 0)
 				{ /* child process*/
-					execvp(args[0], args);
+					execve("/bin/sh", args, NULL);
 					perror("Error message");
 					exit(EXIT_FAILURE);
 				}
