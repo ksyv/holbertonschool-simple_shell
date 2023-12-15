@@ -7,7 +7,7 @@
 char *storedPath(char *command)
 {
 	int index = 0;
-	char *path, *tokens;
+	char *path = NULL, *tokens = NULL;
 	char *path_array[100];
 	char *new_path = NULL;
 	struct stat buf;

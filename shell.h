@@ -18,4 +18,5 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_strdup(char *str);
+void freeall(char *input, char *new_path);
 #endif

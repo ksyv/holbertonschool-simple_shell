@@ -10,11 +10,12 @@ int main(void)
 	ssize_t inputLine = 0;
 	int status = 0;
 	int exitst = 0;
+	char *new_path = NULL;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
-			printf("$ "); /*print prompt*/
+			printf("$ ");			   /*print prompt*/
 
 		inputLine = getline(&input, &inputSize, stdin);
 		if (inputLine == -1)
@@ -26,13 +27,17 @@ int main(void)
 			}
 			break;
 		}
-		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
+		input[inputLine - 1] = '\0';				/*replace line jump by end of string*/
 		if (tokeniseCommand(input, inputLine) == 2) /* in case of exit */
 			break;
+		freeall(input, new_path);
+		input = NULL;
+		new_path = NULL;
+		inputSize = 0;
 	}
 
-	free(input);
-	input = NULL;
+	freeall(input, new_path);
+	new_path = NULL;
 	exitst = WEXITSTATUS(status);
 	return (exitst);
 }
