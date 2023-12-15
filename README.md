@@ -4,8 +4,8 @@ This Shell is a simple shell write with C language. This shell supports basic co
 
 ## Flowchart
 
-    ![alt tag] (https://github.com/ksyv/holbertonschool-simple_shell/issues/3#issue-2043268504)
-
+<img src="https://github.com/ksyv/holbertonschool-simple_shell/blob/features/Micka%C3%ABl/Flowchart.png?raw=true"
+         <alt="Flowchart">
 
 ## Fonctionnalités
 
