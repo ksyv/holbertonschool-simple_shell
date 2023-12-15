@@ -19,7 +19,11 @@ int main(void)
 		inputLine = getline(&input, &inputSize, stdin);
 		if (inputLine == -1)
 		{
-			printf("\n");
+			if (isatty(STDIN_FILENO) == 1)
+			{
+				printf("\n");
+				break;
+			}
 			break;
 		}
 		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
