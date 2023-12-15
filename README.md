@@ -1,35 +1,32 @@
-# MonShell - Un Shell Simple en C
+# SimpleShell
 
-MonShell est un projet de shell simple écrit en langage C. Ce shell prend en charge les commandes de base, la création de processus, l'exécution de programmes, et offre une interface utilisateur intuitive.
+This Shell is a simple shell write with C language. This shell supports basic commands, process creation, program execution and offers an intuitive user interface.
+
+## Flowchart
+
+    ![alt tag]
+https://github.com/ksyv/holbertonschool-simple_shell/issues/3#issue-2043268504
+
 
 ## Fonctionnalités
 
-- Lecture de commandes utilisateur
-- Division des commandes en tokens
-- Création de processus enfants avec `fork`
-- Exécution de programmes externes avec `execvp`
-- Attente de la fin des processus enfants avec `wait`
+- Read command user
+- Separat command with token
+- Creat a child processus with `fork`
+- Execut external program with `execvp`
+- Wait the chilmd process with `wait`
 
-## Utilisation
+## Using
 
-1. Clonez le référentiel :
+1. Clone the Repo :
 
-    ```bash
-    git clone https://github.com/votre-utilisateur/monshell.git
-    ```
+   git clone https://github.com/ksyv/holbertonschool-simple_shell.git
 
-2. Compilez le programme :
+2. Program compilation :
 
-    ```bash
-    cd monshell
-    gcc monshell.c -o monshell
-    ```
+   gcc -Wall -Werror -Wextra -pedantic -std=gnu89 \*.c -o hsh
 
 3. Exécutez le shell :
-
-    ```bash
-    ./monshell
-    ```
 
 4. Entrez des commandes dans le shell et observez son fonctionnement.
 
@@ -40,3 +37,4 @@ MonShell> ls -l
 MonShell> gcc -o monprogramme monprogramme.c
 MonShell> ./monprogramme
 MonShell> exit
+```
