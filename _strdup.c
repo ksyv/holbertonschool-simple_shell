@@ -20,22 +20,3 @@ char *_strdup(char *str)
 		st[i] = str[i];
 	return (st);
 }
-/**
- * _printenv - it displays all the variables in the environment system
- *
- * Return: 0
- */
-int _printenv(void)
-{
-	char *str = environ[0];
-	int index = 0, file_descr = 1;
-
-	while (str[index] != '\0')
-	{
-		write(file_descr, str, strlen(str));
-		write(file_descr, "\n", 1);
-		str = environ[index]; /*++i without next line */
-		++index;
-	}
-	return (0);
-}
