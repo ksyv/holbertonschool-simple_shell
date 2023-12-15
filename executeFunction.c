@@ -17,7 +17,7 @@ int executeFunction(char *arg[])
 	_path = storedPath(command);
 	if (_path == NULL)
 	{
-		printf("command was not found");
+		printf("command was not found\n");
 		exit_st = WEXITSTATUS(status);
 		return (exit_st);
 	}
@@ -33,7 +33,7 @@ int executeFunction(char *arg[])
 	{
 		if (environ)
 		{
-			(execve(_path, arg, environ));
+			execve(_path, arg, environ);
 			perror("Error:");
 			exit(1);
 		}
