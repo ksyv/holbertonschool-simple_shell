@@ -54,6 +54,18 @@ This Shell is a simple shell write with C language. This shell supports basic co
    wait4 (man 2 wait4)
    write (man 2 write)
 
+## File
+
+executeFunction.c ---
+realshell.c ---
+recreateFunction.c ---
+storedPath.c ---
+tokeniseCommand.c ---
+shell.h ---
+_strdup ---
+README.md ---
+Authors ---
+
 ## Using
 
 1. Clone the Repo :
@@ -70,6 +82,15 @@ This Shell is a simple shell write with C language. This shell supports basic co
 
 4. Entrez des commandes dans le shell et observez son fonctionnement.
 
+ls
+pwd
+cd
+touch
+mkdir
+...
+
 ## Exemples d'utilisation
 
 $ ls -la
+
+result : 
