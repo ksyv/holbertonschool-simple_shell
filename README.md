@@ -91,6 +91,11 @@ mkdir
 
 ## Exemples d'utilisation
 
-$ ls -la
+$ ls
 
-result : 
+AUTHORS             freeall.c   man      README.md     recreaeteFunction.c   storedPath.c  'test and exercices'
+executeFunction.c   hsh         output   realshell.c   shell.h               _strdup.c      tokeniseCommand.c
+
+$ pwd
+
+
