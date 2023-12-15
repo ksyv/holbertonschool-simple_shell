@@ -6,7 +6,7 @@
  * @inputSize: unused
  * Return: command execution
  */
-int tokeniseCommand(char *input, size_t inputSize)
+int tokeniseCommand(char *input, __attribute__((unused))size_t inputSize)
 {
 	char *token = NULL;
 	char *arg[100];
