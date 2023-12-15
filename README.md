@@ -8,11 +8,11 @@ This Shell is a simple shell write with C language. This shell supports basic co
 
 ## Fonctionnalités
 
-- Read command user
-- Separat command with token
-- Creat a child processus with `fork`
-- Execut external program with `execvp`
-- Wait the chilmd process with `wait`
+- Lecture de commandes utilisateur
+- Division des commandes en tokens
+- Création de processus enfants avec `fork`
+- Exécution de programmes externes avec `execvp`
+- Attente de la fin des processus enfants avec `wait`
 
 ## Using
 
