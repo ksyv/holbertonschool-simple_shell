@@ -72,4 +72,4 @@ This Shell is a simple shell write with C language. This shell supports basic co
 
 ## Exemples d'utilisation
 
-$ ls 
+$ ls -la
