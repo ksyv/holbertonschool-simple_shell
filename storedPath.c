@@ -12,12 +12,12 @@ char *storedPath(char *command)
 	char *new_path = NULL;
 	struct stat buf;
 
-	path = strdup(_getenv("PATH")); /* gets a dup of PATH */
+	path = _strdup(_getenv("PATH")); /* gets a dup of PATH */
 	tokens = strtok(path, ":"); /* split the path in a set of tokens */
 	new_path = malloc(sizeof(char) * 100);
 	if (_getenv("PATH")[0] == ':')
 		if (stat(command, &buf) == 0) /* in case of success */
-			return (strdup(command)); /* return a copy of command */
+			return (_strdup(command)); /* return a copy of command */
 
 	while (tokens != NULL)
 	{
@@ -44,6 +44,6 @@ char *storedPath(char *command)
 	free(new_path);
 
 	if (stat(command, &buf) == 0)
-		return (strdup(command));
+		return (_strdup(command));
 	return (NULL);/* in case of possible errors */
 }

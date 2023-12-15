@@ -15,6 +15,7 @@ char *storedPath(char *command);
 char *_getenv(char *name);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
-char *_strncpy(char *dest, char *src, int n);
-int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+int _strncmp(const char *s1, const char *s2, size_t n);
+char *_strdup(char *str);
 #endif

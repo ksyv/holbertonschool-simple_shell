@@ -22,25 +22,23 @@ char *_getenv(char *name)
 }
 /**
  * _strcat - concatenates two strings
- * @src: string would be copied.
- * @dest: target
+ * @s1: string would be copied.
+ * @s2: target
  * Return: pointer to dest
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *s1, char *s2)
 {
-	int t1 = 0, t2 = 0;
+	int i;
 
-	while (*(dest + t1) != '\0')
+	i = _strlen(s1);
+	while (*s2 != '\0')
 	{
-		t1++;
+		s1[i] = *s2;
+		i++;
+		s2++;
 	}
-	while (*(src + t2) != '\0')
-	{
-		*(dest + t1) = *(src + t2);
-		t1++;
-		t2++;
-	}
-	return (dest);
+	s1[i] = '\0';
+	return (s1);
 }
 /**
  * _strlen - returns the length of a string
@@ -59,58 +57,46 @@ int _strlen(char *s)
 	return (ns);
 }
 /**
- * _strncpy - copies a string
+ * _strcpy - copies the string pointed to by src,
+ * including the terminating null byte (\0), to the buffer pointed to by dest
  * @dest: string of destination
  * @src: string copied
- * @n: maximum bytes copied
  * Return: pointer to dest
  */
-char *_strncpy(char *dest, char *src, int n)
+char *_strcpy(char *dest, char *src)
 {
 	int t = 0;
 
-	while (*(src + t) != '\0' && t < n)
+	while (*(src + t) != '\0')
 	{
 		*(dest + t) = *(src + t);
 		t++;
 	}
-	if (t < n)
-	{
-		*(dest + t) = *(src + t);
-		t++;
-		while (t < n)
-		{
-			*(dest + t) = '\0';
-			t++;
-		}
-	}
+	*(dest + t) = *(src + t);
 	return (dest);
 }
 /**
- * _strcmp - compares 2 string
+ * _strncmp - compares 2 string
  * @s1: first string
  * @s2: second string
+ * @n: size of string who compareted
  * Return: 0 if the twice are equal,
  * positif if the first is greater,
  * negatif if the first is smaller.
  */
-int _strcmp(char *s1, char *s2)
+int _strncmp(const char *s1, const char *s2, size_t n)
 {
-	int t = 0, r = 0;
+	size_t	i;
 
-	while (*(s1 + t) != '\0' && *(s2 + t) != '\0')
+	if (n == 0)
+		return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0')
 	{
-		if (*(s1 + t) > *(s2 + t))
-		{
-			r += *(s1 + t) - *(s2 + t);
-			return (r);
-		}
-		if (*(s1 + t) < *(s2 + t))
-		{
-			r -= *(s2 + t) - *(s1 + t);
-			return (r);
-		}
-		t++;
+		if (i < (n - 1))
+			i++;
+		else
+			return (0);
 	}
-	return (r);
+	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
 }
