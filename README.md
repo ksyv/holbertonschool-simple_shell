@@ -4,9 +4,7 @@ This Shell is a simple shell write with C language. This shell supports basic co
 
 ## Flowchart
 
-<img src="https://github.com/ksyv/holbertonschool-simple_shell/blob/features/Micka%C3%ABl/Flowchart.png?raw=true"
-         <alt="Flowchart">
-         <a href="https://zupimages.net/viewer.php?id=23/50/8off.png"><img src="https://zupimages.net/up/23/50/8off.png" alt="" /></a>
+<a href="https://zupimages.net/viewer.php?id=23/50/8off.png"><img src="https://zupimages.net/up/23/50/8off.png" alt="" /></a>
 
 ## Fonctionnalités
 
