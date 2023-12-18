@@ -1,3 +1,8 @@
+
+
+
+
+
 # SimpleShell
 
 This Shell is a simple shell write with C language. This shell supports basic commands, process creation, program execution and offers an intuitive user interface.
@@ -110,3 +115,7 @@ drwxr-xr-x 8 vscode vscode  4096 Dec 18 13:27 .git
 drwxr-xr-x 2 vscode vscode  4096 Dec 15 09:15 output
 -rw-r--r-- 1 vscode vscode  2293 Dec 18 13:27 README.md
 $
+
+## Release Notes
+0.0.1
+Initial Release
