@@ -92,10 +92,21 @@ mkdir
 ## Exemples d'utilisation
 
 $ ls
+ AUTHORS             hsh      README.md             shell.h       'test and exercices'
+ executeFunction.c   man      realshell.c           storedPath.c   tokeniseCommand.c
+ freeall.c           output   recreaeteFunction.c   _strdup.c
 
-AUTHORS             freeall.c   man      README.md     recreaeteFunction.c   storedPath.c  'test and exercices'
-executeFunction.c   hsh         output   realshell.c   shell.h               _strdup.c      tokeniseCommand.c
 
 $ pwd
+/home/vscode/holbertonschool-simple_shell
 
 
+$ ls -la
+total 88
+drwxr-xr-x 4 vscode vscode  4096 Dec 18 13:27 .
+drwxr-x--- 1 vscode vscode  4096 Dec 18 08:29 ..
+-rw-r--r-- 1 vscode vscode 61864 Dec 18 13:27 Flowchart.png
+drwxr-xr-x 8 vscode vscode  4096 Dec 18 13:27 .git
+drwxr-xr-x 2 vscode vscode  4096 Dec 15 09:15 output
+-rw-r--r-- 1 vscode vscode  2293 Dec 18 13:27 README.md
+$
