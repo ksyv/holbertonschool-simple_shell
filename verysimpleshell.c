@@ -20,7 +20,11 @@ int main(void)
 		inputLine = getline(&input, &inputSize, stdin);
 		if (inputLine == -1)
 		{
-			perror("./hsh");
+			if (isatty(STDIN_FILENO) == 1)
+			{
+				perror("./hsh");
+			}
+			break;
 		}
 		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
 		args[0] = input;
