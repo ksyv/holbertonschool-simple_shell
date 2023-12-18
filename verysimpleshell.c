@@ -51,7 +51,7 @@ int main(void)
 		else
 		{
 			/* Parent process*/
-			wait(&status);
+			waitpid(pid, &status, 0);
 		}
 	}
 	free(input);
