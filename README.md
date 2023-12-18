@@ -63,7 +63,8 @@ This Shell is a simple shell write with C language. This shell supports basic co
 
 executeFunction.c --- This function is responsible for executing a command with its arguments.
 
-realshell.c ---
+realshell.c --- code is a simple implementation of a command interpreter.
+
 recreateFunction.c ---
 storedPath.c ---
 tokeniseCommand.c ---
