@@ -73,19 +73,19 @@ Authors ---
 
 ## Using
 
-1. Clone the Repo :
+# 1. Clone the Repo :
 
    git clone https://github.com/ksyv/holbertonschool-simple_shell.git
 
-2. Program compilation :
+# 2. Program compilation :
 
    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 \*.c -o hsh
 
-3. Exécutez le shell :
+# 3. Exécutez le shell :
 
    ./hsh
 
-4. Entrez des commandes dans le shell et observez son fonctionnement.
+# 4. Entrez des commandes dans le shell et observez son fonctionnement.
 
 ls
 pwd
