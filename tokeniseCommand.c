@@ -18,6 +18,10 @@ int tokeniseCommand(char *input, __attribute__((unused))size_t inputSize)
 		arg[index++] = token;
 		token = strtok(NULL, " ");
 	}
-	arg[index] = NULL;
+	while (index <= 100)
+	{
+		arg[index] = NULL;
+		index++;
+	}
 	return (executeFunction(arg));
 }

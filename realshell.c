@@ -28,7 +28,8 @@ int main(void)
 			break;
 		}
 		input[inputLine - 1] = '\0';				/*replace line jump by end of string*/
-		if (tokeniseCommand(input, inputLine) == 2) /* in case of exit */
+		if (tokeniseCommand(input, inputLine) == 2)
+		/* in case of exit */
 			break;
 		freeall(input, new_path);
 		input = NULL;
