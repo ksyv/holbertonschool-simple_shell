@@ -5,10 +5,9 @@
  */
 int main(void)
 {
-	char *input = NULL;
+	char *input = NULL, *args[2];
 	size_t inputSize = 0;
 	ssize_t inputLine = 0;
-	char *args[2];
 	pid_t pid;
 	int status;
 
@@ -16,31 +15,24 @@ int main(void)
 	{
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
 			printf("$ ");			   /*print prompt*/
-
 		inputLine = getline(&input, &inputSize, stdin);
 		if (inputLine == -1)
 		{
 			if (isatty(STDIN_FILENO) == 1)
-			{
-				if (isatty(STDIN_FILENO) == 1)
-					printf("\n");
-			}
-			break;
+				printf("\n");
+			exit(EXIT_SUCCESS);
 		}
 		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
 		args[0] = input;
 		args[1] = NULL;
-		/* Create a child process*/
-		pid = fork();
-
+		pid = fork();/* Create a child process*/
 		if (pid == -1)
 		{
 			perror("./hsh");
 			exit(EXIT_FAILURE);
 		}
-		else if (pid == 0)
+		else if (pid == 0)	/*Child process*/
 		{
-			/*Child process*/
 			if (execve(args[0], args, environ) == -1)
 			{
 				perror("./hsh");
@@ -48,9 +40,8 @@ int main(void)
 				exit(EXIT_FAILURE);
 			}
 		}
-		else
+		else/* Parent process*/
 		{
-			/* Parent process*/
 			waitpid(pid, &status, 0);
 		}
 	}
