@@ -22,7 +22,8 @@ int main(void)
 		{
 			if (isatty(STDIN_FILENO) == 1)
 			{
-				perror("./hsh");
+				if (isatty(STDIN_FILENO) == 1)
+					printf("\n");
 			}
 			break;
 		}
