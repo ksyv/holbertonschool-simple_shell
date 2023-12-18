@@ -10,6 +10,7 @@ int main(void)
 	ssize_t inputLine = 0;
 	char *args[2];
 	pid_t pid;
+	int status;
 
 	while (1)
 	{
@@ -26,28 +27,34 @@ int main(void)
 			}
 			break;
 		}
-		input[inputLine - 1] = '\0';				/*replace line jump by end of string*/
-	    args[0] = input;
-        args[1] = NULL;
+		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
+		args[0] = input;
+		args[1] = NULL;
 
-        /* Create a child process*/
-        pid = fork();
+		/* Create a child process*/
+		pid = fork();
 
-        if (pid == -1) {
-            perror("fork");
-            exit(EXIT_FAILURE);
-        } else if (pid == 0) {
-            /*Child process*/
-            if (execve(args[0], args, NULL) == -1) {
-                perror("./hsh");
-                exit(EXIT_FAILURE);
-            }
-        } else {
-            /* Parent process*/
-            int status;
-            waitpid(pid, &status, 0);
-        }
-    }
-
-    return 0;
+		if (pid == -1)
+		{
+			perror("fork");
+			exit(EXIT_FAILURE);
+		}
+		else if (pid == 0)
+		{
+			/*Child process*/
+			if (execve(args[0], args, NULL) == -1)
+			{
+				perror("./hsh");
+				free(input);
+				exit(EXIT_FAILURE);
+			}
+		}
+		else
+		{
+			/* Parent process*/
+			waitpid(pid, &status, 0);
+		}
+	}
+	free(input);
+	return (0);
 }
