@@ -30,7 +30,6 @@ int main(void)
 		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
 		args[0] = input;
 		args[1] = NULL;
-
 		/* Create a child process*/
 		pid = fork();
 
@@ -52,7 +51,7 @@ int main(void)
 		else
 		{
 			/* Parent process*/
-			waitpid(pid, &status, 0);
+			wait(&status);
 		}
 	}
 	free(input);
