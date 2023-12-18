@@ -20,12 +20,7 @@ int main(void)
 		inputLine = getline(&input, &inputSize, stdin);
 		if (inputLine == -1)
 		{
-			if (isatty(STDIN_FILENO) == 1)
-			{
-				printf("\n");
-				break;
-			}
-			break;
+			perror("./hsh");
 		}
 		input[inputLine - 1] = '\0'; /*replace line jump by end of string*/
 		args[0] = input;
@@ -35,7 +30,7 @@ int main(void)
 
 		if (pid == -1)
 		{
-			perror("fork");
+			perror("./hsh");
 			exit(EXIT_FAILURE);
 		}
 		else if (pid == 0)
