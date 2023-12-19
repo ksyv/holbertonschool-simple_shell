@@ -1,0 +1,53 @@
+.TH SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manuel de Simple Shell"
+.SH Simple Shell
+simple_shell \- A light command interpretor writ in c language.
+
+.SH SYNOPSIS
+.B simple_shell
+
+.SH DESCRIPTION
+Le programme \fBsimple_shell\fR est un interpréteur de commandes minimaliste écrit en C. Il fournit une interface en ligne de commande pour exécuter des commandes système de base.
+
+.SH OPTIONS
+Aucune option n'est actuellement prise en charge.
+
+.SH COMMANDES PRINCIPALES
+.TP
+\fBcd\fR [\fIdirectory\fR]
+Change le répertoire de travail courant. Si aucun répertoire n'est spécifié, il se déplace vers le répertoire personnel de l'utilisateur.
+
+.TP
+\fBexit\fR [\fIstatus\fR]
+Quitte le shell avec un statut de sortie optionnel.
+
+.TP
+\fBhelp\fR
+Affiche une aide sur les commandes disponibles.
+
+.SH UTILISATION
+.B simple_shell
+.RS
+Une fois le shell lancé, vous pouvez saisir des commandes système et appuyer sur Entrée pour les exécuter.
+.RE
+
+.SH ENVIRONNEMENT
+.TP
+\fIPATH\fR
+Représente les répertoires où le shell recherche les exécutables.
+
+.SH FICHIERS
+.TP
+\fI~/.simple_shellrc\fR
+Le fichier de configuration du shell, exécuté à chaque lancement du shell.
+
+.SH AUTEUR
+Le simple shell a été développé par [Votre Nom].
+
+.SH RAPPORT DE BUGS
+Veuillez signaler les bugs à [adresse email ou URL du gestionnaire de bugs].
+
+.SH LICENCE
+Ce programme est distribué selon les termes de la licence [nom de la licence]. Consultez le fichier LICENSE pour plus de détails.
+
+.SH VOIR AUSSI
+Liste d'autres documents ou pages de manuel liés.
