@@ -103,7 +103,7 @@ recreateFunction.c --- add and create functions.
 
 storedPath.c --- find the full path of a specified command based on the content of the PATH environment variable.
 
-tokeniseCommand.c ---
+tokeniseCommand.c --- cuts into tokens using space as a delimiter, and executes the command with the tokens as arguments.
 
 shell.h --- Prototypes
 
