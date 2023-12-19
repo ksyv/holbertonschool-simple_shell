@@ -63,7 +63,7 @@ executeFunction.c --- This function is responsible for executing a command with 
 
 realshell.c --- code is a simple implementation of a command interpreter.
 
-recreateFunction.c ---
+recreateFunction.c --- add and create functions
 storedPath.c ---
 tokeniseCommand.c ---
 shell.h ---
