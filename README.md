@@ -110,9 +110,9 @@ $ pwd
 
 $ ls -la
 total 88
-drwxr-xr-x 4 vscode vscode  4096 Dec 18 13:27 .
-drwxr-x--- 1 vscode vscode  4096 Dec 18 08:29 ..
--rw-r--r-- 1 vscode vscode 61864 Dec 18 13:27 Flowchart.png
+drwxr-xr-x 4 vscode vscode  4096 Dec 18 13:27 .\n
+drwxr-x--- 1 vscode vscode  4096 Dec 18 08:29 ..\n
+-rw-r--r-- 1 vscode vscode 61864 Dec 18 13:27 Flowchart.png\n
 drwxr-xr-x 8 vscode vscode  4096 Dec 18 13:27 .git
 drwxr-xr-x 2 vscode vscode  4096 Dec 15 09:15 output
 -rw-r--r-- 1 vscode vscode  2293 Dec 18 13:27 README.md
