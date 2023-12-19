@@ -13,23 +13,23 @@ Aucune option n'est actuellement prise en charge.
 
 .SH COMMANDES PRINCIPALES
 .TP
-\fBcd\fR [\fIdirectory\fR]
-Change le répertoire de travail courant. Si aucun répertoire n'est spécifié, il se déplace vers le répertoire personnel de l'utilisateur.
+\cd
+Change the work current directorie. if none directories specified, it moves to the user’s home directory.
 
 .TP
-\fBexit\fR [\fIstatus\fR]
-Quitte le shell avec un statut de sortie optionnel.
+\exit
+Exit shell with the optionnel statut.
 
 .TP
-\fBhelp\fR
-Affiche une aide sur les commandes disponibles.
+\help
+Display a help command.
 
 .SH UTILISATION
 .B simple_shell
 .RS
-Une fois le shell lancé, vous pouvez saisir des commandes système et appuyer sur Entrée pour les exécuter.
+once shell start, you acn entry a system command and push the entry button for execut.
 .RE
-
+----------------------------------------------------Translation-------
 .SH ENVIRONNEMENT
 .TP
 \fIPATH\fR
