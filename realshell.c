@@ -23,7 +23,8 @@ int main(void)
 		if (strcmp(input, "exit") == 0)
 		{
 			free(input);
-		}	break;
+			break;
+		}
 		tokenArray = tokeniseCommand(input, separator);
 		if (*tokenArray == NULL)
 		{
