@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 extern char **environ;
+char *inputFunction(void);
 int tokeniseCommand(char *s, size_t file_stream);
 int executeFunction(char *arg[]);
 char *storedPath(char *command);
