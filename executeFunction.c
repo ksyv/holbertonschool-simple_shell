@@ -12,7 +12,7 @@ int executeFunction(char **tokenArray, char *newPath)
 	pid_t pid;
 
 	pid = fork();
-	if (pid < 0)
+	if (pid == -1)
 	{
 		perror("./hsh");
 		exit(EXIT_FAILURE);
