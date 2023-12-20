@@ -25,7 +25,8 @@ char *storedPath(char *command)
 		pathArray[index++] = pathToken; /* store results of tokens in path_array */
 		pathToken = strtok(NULL, ":");
 	}
-	for (index = 0; pathArray[index]; index++)
+	index = 0;
+	while (pathArray[index] != NULL)
 	{
 		strcpy(newPath, pathArray[index]); /* copy tokens to new path */
 		strcat(newPath, "/"); /* add "/" and command */
@@ -38,6 +39,7 @@ char *storedPath(char *command)
 		}
 		else
 			newPath[0] = 0;
+		index++;
 	}
 	free(path);
 	free(newPath);
