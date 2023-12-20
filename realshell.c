@@ -6,26 +6,43 @@
 int main(void)
 {
 	char *input = NULL;
-	ssize_t inputLine = 0;
+	char **tokenArray = NULL;
+	char *separator = " ";
 	int status = 0;
-	int exitstatus = 0;
-	char *new_path = NULL;
+	char *newPath = NULL;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
 			printf("$ ");			   /*print prompt*/
 		input = inputFunction();
-		if (tokeniseCommand(input, inputLine) == 2)/* in case of exit */
+		if (strcmp("env", input) == 0)
+		{
+			environPrinter();
+			continue;
+		}
+		if (strcmp(input, "exit") == 0)
 			break;
-		freeall(input, new_path);
-		input = NULL;
-		new_path = NULL;
+		tokenArray = tokeniseCommand(input, separator);
+		if (*tokenArray == NULL)
+		{
+			freeTokenArray(tokenArray);
+			continue;
+		}
+		newPath = storedPath(*tokenArray);
+		if (newPath == NULL)
+		{
+			perror("./hsh");
+			free(newPath);
+			freeTokenArray(tokenArray);
+			return (3);
+		}
+		else
+		{
+			status = executeFunction(tokenArray, newPath);
+			free(newPath);
+		}
+		freeTokenArray(tokenArray);
 	}
-
-	freeall(input, new_path);
-	input = NULL;
-	new_path = NULL;
-	exitstatus = WEXITSTATUS(status);
-	return (exitstatus);
+	return (status);
 }

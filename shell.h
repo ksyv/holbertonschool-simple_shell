@@ -10,8 +10,10 @@
 #include <sys/stat.h>
 extern char **environ;
 char *inputFunction(void);
-int tokeniseCommand(char *s, size_t file_stream);
-int executeFunction(char *arg[]);
+void environPrinter(void);
+char **tokeniseCommand(char *input, char *separator);
+void freeTokenArray(char **tokenArray);
+int executeFunction(char **tokenArray, char *newPath);
 char *storedPath(char *command);
 char *_getenv(char *name);
 char *_strcat(char *dest, char *src);

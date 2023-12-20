@@ -2,46 +2,28 @@
 /**
  * executeFunction - function that executes the command
  * and his arguments
- * @arg: user's command's argument
- * Return: 0
+ * @tokenArray: user's command and argument
+ * @newPath: path for execute command
+ * Return: exit status
  */
-int executeFunction(char *arg[])
+int executeFunction(char **tokenArray, char *newPath)
 {
-	char *_path = NULL;
-	char *command = NULL;
-	pid_t pid;
 	int status;
-	int exitStatus = 0;
+	pid_t pid;
 
-	command = arg[0];
-	_path = storedPath(command);
-	if (_path == NULL)
-	{
-		perror("./hsh");
-		exitStatus = WEXITSTATUS(status);
-		return (exitStatus);
-	}
 	pid = fork();
 	if (pid < 0)
 	{
 		perror("./hsh");
-		return (-1);
+		return (EXIT_FAILURE);
 	}
-	if (pid > 0)
-		waitpid(pid, &status, 0);
-	else if (pid == 0)
+	if (pid == 0)
 	{
-		if (environ)
-		{
-			execve(_path, arg, environ);
-			perror("./hsh");
-			exit(1);
-		}
-		else
-		{
-			execve(_path, arg, NULL);
-		}
+		execve(newPath, tokenArray, environ);
+		perror("./hsh");
+		exit(EXIT_FAILURE);
 	}
-	free(_path);
-	return (0);
+	else
+		waitpid(pid, &status, 0);
+	return (status);
 }
