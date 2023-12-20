@@ -8,7 +8,7 @@ char *storedPath(char *command)
 {
 	int index = 0;
 	char *path = NULL, *pathToken = NULL;
-	char *pathArray[100];
+	char *pathArray[1000];
 	char *newPath = NULL;
 	struct stat buf;
 
@@ -22,7 +22,8 @@ char *storedPath(char *command)
 	}
 	while (pathToken != NULL)
 	{
-		pathArray[index++] = pathToken; /* store results of tokens in path_array */
+		pathArray[index] = pathToken; /* store results of tokens in path_array */
+		index++;
 		pathToken = strtok(NULL, ":");
 	}
 	index = 0;
