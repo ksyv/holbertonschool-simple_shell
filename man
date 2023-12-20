@@ -1,37 +1,42 @@
-.TH SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manuel de Simple Shell"
-.SH Simple Shell
+SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manuel de Simple Shell"
+.hsh Simple Shell
 simple_shell \- A light command interpretor writ in c language.
 
-.SH SYNOPSIS
-.B simple_shell
+SYNOPSIS
+simple_shell
 
-.SH DESCRIPTION
-Le programme \fBsimple_shell\fR est un interpréteur de commandes minimaliste écrit en C. Il fournit une interface en ligne de commande pour exécuter des commandes système de base.
+## DESCRIPTION
+The programm .hsh is a minimal command interpreter write in c language. it provides a command line interface for execut command system.
 
-.SH OPTIONS
-Aucune option n'est actuellement prise en charge.
+## OPTIONS
+no options supported.
 
-.SH COMMANDES PRINCIPALES
-.TP
+-----------------------------------------------------------
+
+## Main controls
+
 \cd
 Change the work current directorie. if none directories specified, it moves to the user’s home directory.
 
-.TP
+
 \exit
 Exit shell with the optionnel statut.
 
-.TP
+
 \help
 Display a help command.
 
-.SH UTILISATION
-.B simple_shell
-.RS
-once shell start, you acn entry a system command and push the entry button for execut.
-.RE
-----------------------------------------------------Translation-------
-.SH ENVIRONNEMENT
-.TP
+-----------------------------------------------------------
+
+## UTILISATION
+
+simple_shell
+
+once shell start, you can entry a system command and push the entry button for execut.
+
+
+ENVIRONNEMENT
+
 \fIPATH\fR
 Représente les répertoires où le shell recherche les exécutables.
 
