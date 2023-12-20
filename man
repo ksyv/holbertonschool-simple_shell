@@ -1,0 +1,81 @@
+## SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manual of Simple Shell"
+.hsh Simple Shell
+simple_shell \- A light command interpretor write in c language.
+
+SYNOPSIS
+simple_shell
+
+## DESCRIPTION
+This program .hsh is a minimal command interpreter write in c language. it provides a command line interface for execut command system.
+
+## OPTIONS
+no options supported.
+
+-----------------------------------------------------------
+
+## Main controls
+
+\cd
+Change the work current directorie. if none directories specified, it moves to the user’s home directory.
+
+
+\exit
+Exit shell with the optionnel statut.
+
+
+\ls
+Files list on the folder.
+
+-----------------------------------------------------------
+
+## UTILISATION
+
+simple_shell
+
+once shell start, you can entry a system command and push the entry button for execut.
+
+-----------------------------------------------------------
+
+## ENVIRONNEMENT
+
+/bin: Contains essential executables used by all system users, including basic shell commands.
+
+/sbin: Similar to/bin, but contains system commands used by the system administrator for administrative tasks.
+
+/usr/bin and/usr/sbin:  Contain additional user programs and system commands used by the administrator, respectively.
+
+/etc: Contains system configuration files, including those associated with the shell.
+
+/home: The main user directory. Each user has a subdirectory here that serves as a home directory.
+
+/var: Contains files that change frequently, such as log files (/var/log).
+
+/tmp: A temporary directory where programs and users can store temporary files.
+
+/dev: Contains special files representing devices (for example, /dev/null for null, /dev/tty for terminal).
+
+/proc: A virtual file system that provides information about running processes and the system kernel.
+
+/lib and/lib64: Contain shared libraries used by system programs.
+
+/opt: Often used to install third-party software.
+
+/root: The administrator’s home directory (root).
+
+
+-----------------------------------------------------------
+
+AUTHORS
+The simple shell developed by
+* Kévin VIAIS
+* Esteban GUILLEN
+* Mickaël PERRET
+
+BUGS REPORT
+Please report bugs to [].
+
+LICENCE
+This program is distributed under the terms of the [HOLBERTON-LICENSE]
+
+SEE ALSO
+List of other document
