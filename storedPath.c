@@ -42,6 +42,6 @@ char *storedPath(char *command)
 	free(path);
 	free(new_path);
 	if (stat(command, &buf) == 0)
-		return (_strdup(command));
+		return (strdup(command));
 	return (NULL);/* in case of possible errors */
 }
