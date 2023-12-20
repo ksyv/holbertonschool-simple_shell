@@ -1,12 +1,12 @@
-SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manuel de Simple Shell"
+## SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manual of Simple Shell"
 .hsh Simple Shell
-simple_shell \- A light command interpretor writ in c language.
+simple_shell \- A light command interpretor write in c language.
 
 SYNOPSIS
 simple_shell
 
 ## DESCRIPTION
-The programm .hsh is a minimal command interpreter write in c language. it provides a command line interface for execut command system.
+This program .hsh is a minimal command interpreter write in c language. it provides a command line interface for execut command system.
 
 ## OPTIONS
 no options supported.
@@ -23,8 +23,8 @@ Change the work current directorie. if none directories specified, it moves to t
 Exit shell with the optionnel statut.
 
 
-\help
-Display a help command.
+\ls
+Files list on the folder.
 
 -----------------------------------------------------------
 
@@ -34,25 +34,48 @@ simple_shell
 
 once shell start, you can entry a system command and push the entry button for execut.
 
+-----------------------------------------------------------
 
-ENVIRONNEMENT
+## ENVIRONNEMENT
 
-\fIPATH\fR
-Représente les répertoires où le shell recherche les exécutables.
+/bin: Contains essential executables used by all system users, including basic shell commands.
 
-.SH FICHIERS
-.TP
-\fI~/.simple_shellrc\fR
-Le fichier de configuration du shell, exécuté à chaque lancement du shell.
+/sbin: Similar to/bin, but contains system commands used by the system administrator for administrative tasks.
 
-.SH AUTEUR
-Le simple shell a été développé par [Votre Nom].
+/usr/bin and/usr/sbin:  Contain additional user programs and system commands used by the administrator, respectively.
 
-.SH RAPPORT DE BUGS
-Veuillez signaler les bugs à [adresse email ou URL du gestionnaire de bugs].
+/etc: Contains system configuration files, including those associated with the shell.
 
-.SH LICENCE
-Ce programme est distribué selon les termes de la licence [nom de la licence]. Consultez le fichier LICENSE pour plus de détails.
+/home: The main user directory. Each user has a subdirectory here that serves as a home directory.
 
-.SH VOIR AUSSI
-Liste d'autres documents ou pages de manuel liés.
+/var: Contains files that change frequently, such as log files (/var/log).
+
+/tmp: A temporary directory where programs and users can store temporary files.
+
+/dev: Contains special files representing devices (for example, /dev/null for null, /dev/tty for terminal).
+
+/proc: A virtual file system that provides information about running processes and the system kernel.
+
+/lib and/lib64: Contain shared libraries used by system programs.
+
+/opt: Often used to install third-party software.
+
+/root: The administrator’s home directory (root).
+
+
+-----------------------------------------------------------
+
+AUTHORS
+The simple shell developed by
+* Kévin VIAIS
+* Esteban GUILLEN
+* Mickaël PERRET
+
+BUGS REPORT
+Please report bugs to [].
+
+LICENCE
+This program is distributed under the terms of the [HOLBERTON-LICENSE]
+
+SEE ALSO
+List of other document
