@@ -5,11 +5,9 @@
  */
 int main(void)
 {
-	char *input = NULL;
-	char **tokenArray = NULL;
-	char *separator = " ";
+	char *input = NULL, **tokenArray = NULL;
+	char *separator = " ", *newPath = NULL;
 	int status = 0;
-	char *newPath = NULL;
 
 	while (1)
 	{
@@ -18,11 +16,14 @@ int main(void)
 		input = inputFunction();
 		if (strcmp("env", input) == 0)
 		{
+			free(input);
 			environPrinter();
 			continue;
 		}
 		if (strcmp(input, "exit") == 0)
-			break;
+		{
+			free(input);
+		}	break;
 		tokenArray = tokeniseCommand(input, separator);
 		if (*tokenArray == NULL)
 		{
