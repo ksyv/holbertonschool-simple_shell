@@ -14,13 +14,13 @@ int executeFunction(char **tokenArray, char *newPath)
 	pid = fork();
 	if (pid == -1)
 	{
-		perror("./hsh");
+		perror("Fork failed");
 		exit(EXIT_FAILURE);
 	}
 	if (pid == 0)
 	{
 		execve(newPath, tokenArray, environ);
-		perror("./hsh");
+		perror("execve failed");
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -29,7 +29,7 @@ int executeFunction(char **tokenArray, char *newPath)
 
 		if (waitpid(pid, &waitStatus, 0) == -1)
 		{
-			perror("./hsh");
+			perror("Waitpid failed");
 			exit(EXIT_FAILURE);
 		}
 		if (WIFEXITED(waitStatus))
