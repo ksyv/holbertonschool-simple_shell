@@ -12,6 +12,8 @@ int tokeniseCommand(char *input, __attribute__((unused))size_t inputSize)
 	char *arg[100];
 	int index = 0;
 
+	if (strcmp(input, "exit") == 0)
+		return (2);
 	token = strtok(input, " ");
 	while (token)
 	{

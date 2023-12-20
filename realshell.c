@@ -9,7 +9,7 @@ int main(void)
 	size_t inputSize = 0;
 	ssize_t inputLine = 0;
 	int status = 0;
-	int exitst = 0;
+	int exitstatus = 0;
 	char *new_path = NULL;
 
 	while (1)
@@ -21,15 +21,11 @@ int main(void)
 		if (inputLine == -1)
 		{
 			if (isatty(STDIN_FILENO) == 1)
-			{
 				printf("\n");
-				break;
-			}
 			break;
 		}
-		input[inputLine - 1] = '\0';				/*replace line jump by end of string*/
-		if (tokeniseCommand(input, inputLine) == 2)
-		/* in case of exit */
+		input[inputLine - 1] = '\0';/*replace line jump by end of string*/
+		if (tokeniseCommand(input, inputLine) == 2)/* in case of exit */
 			break;
 		freeall(input, new_path);
 		input = NULL;
@@ -38,7 +34,8 @@ int main(void)
 	}
 
 	freeall(input, new_path);
+	input = NULL;
 	new_path = NULL;
-	exitst = WEXITSTATUS(status);
-	return (exitst);
+	exitstatus = WEXITSTATUS(status);
+	return (exitstatus);
 }
