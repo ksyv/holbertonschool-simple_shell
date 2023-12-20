@@ -24,6 +24,21 @@ int executeFunction(char **tokenArray, char *newPath)
 		exit(EXIT_FAILURE);
 	}
 	else
-		waitpid(pid, &status, 0);
+	{
+		int waitStatus;
+
+		if (waitpid(pid, &waitStatus, 0) == -1)
+		{
+			perror("./hsh");
+			exit(EXIT_FAILURE);
+		}
+		if (WIFEXITED(waitStatus))
+			status = WEXITSTATUS(waitStatus);
+		else
+		{
+			fprintf(stderr, "Child process did not terminate normally\n");
+			status = EXIT_FAILURE;
+		}
+	}
 	return (status);
 }

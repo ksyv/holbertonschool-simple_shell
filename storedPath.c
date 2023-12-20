@@ -12,7 +12,7 @@ char *storedPath(char *command)
 	char *newPath = NULL;
 	struct stat buf;
 
-	path = strdup(_getenv("PATH")); /* gets a dup of PATH */
+	path = strdup(getenv("PATH")); /* gets a dup of PATH */
 	pathToken = strtok(path, ":"); /* split the path in a set of tokens */
 	newPath = (char *) malloc(sizeof(char) * 1024);
 	if (stat(command, &buf) == 0)
