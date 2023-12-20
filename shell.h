@@ -12,7 +12,7 @@
 extern char **environ;
 char *inputFunction(void);
 void environPrinter(void);
-char **tokeniseCommand(char *input, const char *separator);
+char **tokeniseCommand(char *Sinput, const char *separator);
 void freeTokenArray(char **tokenArray);
 int executeFunction(char **tokenArray, char *newPath);
 char *storedPath(char *command);

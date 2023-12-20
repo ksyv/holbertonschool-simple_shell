@@ -2,11 +2,11 @@
 /**
  * tokeniseCommand - function that reads the command and
  * make token with each part separated by a space (arg)
- * @input: the input string command
+ * @Sinput: the input string command
  * @separator: separator of token
  * Return: token array
  */
-char **tokeniseCommand(char *input, const char *separator)
+char **tokeniseCommand(char *Sinput, const char *separator)
 {
 	int size = 64;
 	char **tokenArray = (char **)malloc(sizeof(char *) * size);
@@ -18,7 +18,7 @@ char **tokeniseCommand(char *input, const char *separator)
 		perror("./hsh");
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(input, separator);
+	token = strtok(Sinput, separator);
 	while (token != NULL)
 	{
 		if (index >= size - 1)
@@ -42,7 +42,7 @@ char **tokeniseCommand(char *input, const char *separator)
 	}
 
 	tokenArray[index] = NULL;
-	free(input);
+	free(Sinput);
 	return (tokenArray);
 }
 /**
