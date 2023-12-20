@@ -5,8 +5,7 @@
  */
 int main(void)
 {
-	char *input = NULL, **tokenArray = NULL;
-	char *separator = " ", *newPath = NULL;
+	char *input = NULL, **tokenArray = NULL, *newPath = NULL;
 	int status = 0;
 
 	while (1)
@@ -14,18 +13,18 @@ int main(void)
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
 			printf("$ ");			   /*print prompt*/
 		input = inputFunction();
-		if (strcmp("env", input) == 0)
+		if (strcmp("env\n", input) == 0)
 		{
 			free(input);
 			environPrinter();
 			continue;
 		}
-		if (strcmp(input, "exit") == 0)
+		if (strcmp(input, "exit\n") == 0)
 		{
 			free(input);
 			break;
 		}
-		tokenArray = tokeniseCommand(input, separator);
+		tokenArray = tokeniseCommand(input, TOKEN_DELIMITER);
 		if (*tokenArray == NULL)
 		{
 			freeTokenArray(tokenArray);
@@ -39,7 +38,7 @@ int main(void)
 			freeTokenArray(tokenArray);
 			return (3);
 		}
-		else
+		if (newPath != NULL)
 		{
 			status = executeFunction(tokenArray, newPath);
 			free(newPath);

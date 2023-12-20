@@ -13,9 +13,8 @@ char *inputFunction(void)
 	if (inputLine == -1)
 	{
 		free(input);
-		if (isatty(STDIN_FILENO) == 1)
+		if (feof(stdin))
 		{
-			printf("\n");
 			exit(EXIT_SUCCESS);
 		}
 		else
@@ -24,6 +23,5 @@ char *inputFunction(void)
 			exit(EXIT_FAILURE);
 		}
 	}
-	input[inputLine - 1] = '\0';/*replace line jump by end of string*/
 	return (input);
 }

@@ -6,14 +6,13 @@
  * @separator: separator of token
  * Return: token array
  */
-char **tokeniseCommand(char *input, char *separator)
+char **tokeniseCommand(char *input, const char *separator)
 {
-	char **tokenArray = NULL;
+	int size = 64;
+	char **tokenArray = (char **)malloc(sizeof(char *) * size);
 	char *token = NULL;
 	int index = 0;
-	int size = 64;
 
-	tokenArray = (char **)malloc(sizeof(char *) * size);
 	if (!tokenArray)
 	{
 		perror("./hsh");
@@ -54,6 +53,11 @@ void freeTokenArray(char **tokenArray)
 {
 	int index;
 
+	if (tokenArray == NULL)
+	{
+		fprintf(stderr, "Error: Attempting to free a NULL double pointer\n");
+		return;
+	}
 	for (index = 0; tokenArray[index] != NULL; index++)
 	{
 		free(tokenArray[index]);

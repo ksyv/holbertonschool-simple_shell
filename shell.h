@@ -1,5 +1,6 @@
 #ifndef __MYSHELL__
 #define __MYSHELL__
+#define TOKEN_DELIMITER " \t\n"
 /*Include all the necessaries library*/
 #include <stdio.h>
 #include <unistd.h>
@@ -11,7 +12,7 @@
 extern char **environ;
 char *inputFunction(void);
 void environPrinter(void);
-char **tokeniseCommand(char *input, char *separator);
+char **tokeniseCommand(char *input, const char *separator);
 void freeTokenArray(char **tokenArray);
 int executeFunction(char **tokenArray, char *newPath);
 char *storedPath(char *command);
