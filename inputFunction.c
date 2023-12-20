@@ -19,9 +19,10 @@ char *inputFunction(void)
 		}
 		else
 		{
-			perror("./hsh");
+			perror("getline failed");
 			exit(EXIT_FAILURE);
 		}
 	}
+	input[inputLine - 1] = '\0';/*replace line jump by end of string*/
 	return (input);
 }

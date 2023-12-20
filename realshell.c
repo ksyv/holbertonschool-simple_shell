@@ -13,13 +13,13 @@ int main(void)
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
 			printf("$ ");			   /*print prompt*/
 		input = inputFunction();
-		if (strcmp("env\n", input) == 0)
+		if (strcmp("env", input) == 0)
 		{
 			free(input);
 			environPrinter();
 			continue;
 		}
-		if (strcmp(input, "exit\n") == 0)
+		if (strcmp(input, "exit") == 0)
 		{
 			free(input);
 			break;
