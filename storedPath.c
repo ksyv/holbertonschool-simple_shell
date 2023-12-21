@@ -10,6 +10,7 @@ char *storedPath(char *command)
 	char *path = NULL, *tokens = NULL;
 	char *path_array[1000];
 	char *new_path = NULL;
+	size_t new_path_size;
 	struct stat buf;
 
 	path = strdup(_getenv("PATH")); /* gets a dup of PATH */
@@ -21,7 +22,8 @@ char *storedPath(char *command)
 		strcpy(path, command);
 		return (path); /* return a copy of command */
 	}
-	new_path = malloc(sizeof(char) * 1024);
+	new_path_size = strlen(tokens) + 1 + strlen(command) + 1;
+	new_path = realloc(new_path, new_path_size);
 		if (new_path == NULL)
 			free(new_path);
 	while (tokens != NULL)
