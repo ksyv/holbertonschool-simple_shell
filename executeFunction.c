@@ -19,7 +19,7 @@ int executeFunction(char *arg[])
 	{
 		perror("./hsh");
 		free(_path);
-		exitStatus = 1;
+		exitStatus = 127;
 		return (exitStatus);
 	}
 	pid = fork();
