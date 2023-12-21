@@ -2,9 +2,9 @@
 /**
  * freeall - free all
  * @input: input variable
- * @new_path: new path variable
+ * @newPath: new path variable
  */
-void freeall(char *input, char *new_path)
+void freeall(char *input, char *newPath)
 {
 	if (input != NULL)
 	{
@@ -12,9 +12,9 @@ void freeall(char *input, char *new_path)
 		input = NULL;
 	}
 
-	if (new_path != NULL)
+	if (newPath != NULL)
 	{
-		free(new_path);
-		new_path = NULL;
+		free(newPath);
+		newPath = NULL;
 	}
 }

@@ -2,43 +2,46 @@
 /**
  * executeFunction - function that executes the command
  * and his arguments
- * @tokenArray: user's command and argument
- * @newPath: path for execute command
- * Return: exit status
+ * @arg: user's command's argument
+ * Return: 0
  */
-int executeFunction(char **tokenArray, char *newPath)
+int executeFunction(char *arg[])
 {
-	int status;
+	char *_path = NULL;
+	char *command = NULL;
 	pid_t pid;
+	int status;
+	int exitStatus = 0;
 
+	command = arg[0];
+	_path = storedPath(command);
+	if (_path == NULL)
+	{
+		perror("./hsh");
+		exitStatus = WEXITSTATUS(status);
+		return (exitStatus);
+	}
 	pid = fork();
-	if (pid == -1)
+	if (pid < 0)
 	{
-		perror("Fork failed");
-		exit(EXIT_FAILURE);
+		perror("./hsh");
+		return (-1);
 	}
-	if (pid == 0)
+	if (pid > 0)
+		waitpid(pid, &status, 0);
+	else if (pid == 0)
 	{
-		execve(newPath, tokenArray, environ);
-		perror("execve failed");
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		int waitStatus;
-
-		if (waitpid(pid, &waitStatus, 0) == -1)
+		if (environ)
 		{
-			perror("Waitpid failed");
-			exit(EXIT_FAILURE);
+			execve(_path, arg, environ);
+			perror("./hsh");
+			exit(1);
 		}
-		if (WIFEXITED(waitStatus))
-			status = WEXITSTATUS(waitStatus);
 		else
 		{
-			fprintf(stderr, "Child process did not terminate normally\n");
-			status = EXIT_FAILURE;
+			execve(_path, arg, NULL);
 		}
 	}
-	return (status);
+	free(_path);
+	return (0);
 }

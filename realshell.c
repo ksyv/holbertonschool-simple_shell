@@ -5,45 +5,37 @@
  */
 int main(void)
 {
-	char *input = NULL, **tokenArray = NULL, *newPath = NULL;
+	char *input = NULL;
+	size_t inputSize = 0;
+	ssize_t inputLine = 0;
 	int status = 0;
+	int exitstatus = 0;
+	char *new_path = NULL;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
 			printf("$ ");			   /*print prompt*/
-		input = inputFunction();
-		if (strcmp("env", input) == 0)
+
+		inputLine = getline(&input, &inputSize, stdin);
+		if (inputLine == -1)
 		{
-			free(input);
-			environPrinter();
-			continue;
-		}
-		if (strcmp(input, "exit") == 0)
-		{
-			free(input);
+			if (isatty(STDIN_FILENO) == 1)
+				printf("\n");
 			break;
 		}
-		tokenArray = tokeniseCommand(input, TOKEN_DELIMITER);
-		if (*tokenArray == NULL)
-		{
-			freeTokenArray(tokenArray);
-			continue;
-		}
-		newPath = storedPath(*tokenArray);
-		if (newPath == NULL)
-		{
-			perror("./hsh");
-			free(newPath);
-			freeTokenArray(tokenArray);
-			return (3);
-		}
-		if (newPath != NULL)
-		{
-			status = executeFunction(tokenArray, newPath);
-			free(newPath);
-		}
-		freeTokenArray(tokenArray);
+		input[inputLine - 1] = '\0';/*replace line jump by end of string*/
+		if (tokeniseCommand(input, inputLine) == 2)/* in case of exit */
+			break;
+		freeall(input, new_path);
+		input = NULL;
+		new_path = NULL;
+		inputSize = 0;
 	}
-	return (status);
+
+	freeall(input, new_path);
+	input = NULL;
+	new_path = NULL;
+	exitstatus = WEXITSTATUS(status);
+	return (exitstatus);
 }
