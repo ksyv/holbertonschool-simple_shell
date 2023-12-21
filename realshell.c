@@ -17,7 +17,7 @@ int main(void)
 		if (isatty(STDIN_FILENO) == 1) /* if interactive */
 			printf("$ ");			   /*print prompt*/
 		inputLine = getline(&input, &inputSize, stdin);
-		if (inputLine == -1)
+		if (inputLine <= 1)
 		{
 			if (isatty(STDIN_FILENO) == 1)
 				printf("\n");
