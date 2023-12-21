@@ -8,27 +8,30 @@ char *storedPath(char *command)
 {
 	int index = 0;
 	char *path = NULL, *tokens = NULL;
-	char *path_array[100];
+	char *path_array[1000];
 	char *new_path = NULL;
 	struct stat buf;
 
 	path = strdup(_getenv("PATH")); /* gets a dup of PATH */
+		if (path == NULL)
+			free(path);
 	tokens = strtok(path, ":"); /* split the path in a set of tokens */
-	if (_getenv("PATH")[0] == ':')
+	if (stat(command, &buf) == 0) /* in case of success */
 	{
-		if (stat(command, &buf) == 0) /* in case of success */
-		{
-			strcpy(path, command);
-			return (path); /* return a copy of command */
-		}
+		strcpy(path, command);
+		return (path); /* return a copy of command */
 	}
 	new_path = malloc(sizeof(char) * 1024);
+		if (new_path == NULL)
+			free(new_path);
 	while (tokens != NULL)
 	{
 		path_array[index] = tokens; /* store results of tokens in path_array */
 		index++;
 		tokens = strtok(NULL, ":");
 	}
+	if (tokens == NULL)
+		path_array[index] = NULL;
 	index = 0;
 	while (path_array[index] != NULL)
 	{
