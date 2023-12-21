@@ -21,12 +21,6 @@ int main(void)
 		{
 			if (isatty(STDIN_FILENO) == 1)
 				printf("\n");
-			else
-			{
-				perror("getline failed");
-				freeall(input, new_path);
-				exit(EXIT_FAILURE);
-			}
 			break;
 		}
 		input[inputLine - 1] = '\0';/*replace line jump by end of string*/
