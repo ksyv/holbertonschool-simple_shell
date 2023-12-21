@@ -27,10 +27,14 @@ int main(void)
 		if (tokeniseCommand(input, inputLine) == 2)/* in case of exit */
 			break;
 		freeall(input, new_path);
+		input = NULL;
+		new_path = NULL;
 		inputSize = 0;
 	}
 
 	freeall(input, new_path);
+	input = NULL;
+	new_path = NULL;
 	exitstatus = WEXITSTATUS(status);
 	return (exitstatus);
 }

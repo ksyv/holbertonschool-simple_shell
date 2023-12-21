@@ -18,6 +18,7 @@ int executeFunction(char *arg[])
 	if (_path == NULL)
 	{
 		perror("./hsh");
+		free(_path);
 		exitStatus = WEXITSTATUS(status);
 		return (exitStatus);
 	}
