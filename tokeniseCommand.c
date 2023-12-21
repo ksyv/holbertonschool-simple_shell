@@ -24,7 +24,8 @@ int tokeniseCommand(char *input, __attribute__((unused))size_t inputSize)
 	token = strtok(input, " ");
 	while (token)
 	{
-		arg[index++] = token;
+		arg[index] = token;
+		index++;
 		token = strtok(NULL, " ");
 	}
 	while (index <= 100)
