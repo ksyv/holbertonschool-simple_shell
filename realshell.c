@@ -29,6 +29,7 @@ int main(void)
 		freeall(input, new_path);
 		inputSize = 0;
 	}
+
 	freeall(input, new_path);
 	exitstatus = WEXITSTATUS(status);
 	return (exitstatus);
