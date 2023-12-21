@@ -19,7 +19,7 @@ int executeFunction(char *arg[])
 	{
 		perror("./hsh");
 		free(_path);
-		exitStatus = WEXITSTATUS(status);
+		exitStatus = 1;
 		return (exitStatus);
 	}
 	pid = fork();
@@ -44,5 +44,5 @@ int executeFunction(char *arg[])
 		}
 	}
 	free(_path);
-	return (0);
+	return (exitStatus);
 }

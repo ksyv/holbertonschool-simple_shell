@@ -31,7 +31,6 @@ int main(void)
 		new_path = NULL;
 		inputSize = 0;
 	}
-
 	freeall(input, new_path);
 	input = NULL;
 	new_path = NULL;
