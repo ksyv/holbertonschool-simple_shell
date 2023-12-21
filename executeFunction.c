@@ -25,7 +25,7 @@ int executeFunction(char *arg[])
 	if (pid < 0)
 	{
 		perror("./hsh");
-		return (-1);
+		return (EXIT_FAILURE);
 	}
 	if (pid > 0)
 		waitpid(pid, &status, 0);
@@ -43,5 +43,5 @@ int executeFunction(char *arg[])
 		}
 	}
 	free(_path);
-	return (0);
+	return (status);
 }
