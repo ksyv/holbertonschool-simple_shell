@@ -15,7 +15,6 @@ char *storedPath(char *command)
 
 	path = strdup(_getenv("PATH")); /* gets a dup of PATH */
 		if (path == NULL)
-			free(path);
 	tokens = strtok(path, ":"); /* split the path in a set of tokens */
 	if (stat(command, &buf) == 0) /* in case of success */
 	{
@@ -25,7 +24,6 @@ char *storedPath(char *command)
 	new_path_size = strlen(tokens) + 1 + strlen(command) + 1;
 	new_path = realloc(new_path, new_path_size);
 		if (new_path == NULL)
-			free(new_path);
 	while (tokens != NULL)
 	{
 		path_array[index] = tokens; /* store results of tokens in path_array */
