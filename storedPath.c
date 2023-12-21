@@ -8,8 +8,7 @@ char *storedPath(char *command)
 {
 	int index = 0;
 	char *path = NULL, *tokens = NULL;
-	char *path_array[1000];
-	char *new_path = NULL;
+	char *path_array[1000], *new_path = NULL;
 	size_t new_path_size;
 	struct stat buf;
 
@@ -26,16 +25,14 @@ char *storedPath(char *command)
 	new_path = realloc(new_path, new_path_size);
 		if (new_path == NULL)
 			free(new_path);
-	while (tokens != NULL)
+	for (; tokens != NULL; index++)
 	{
 		path_array[index] = tokens; /* store results of tokens in path_array */
-		index++;
 		tokens = strtok(NULL, ":");
 	}
 	if (tokens == NULL)
 		path_array[index] = NULL;
-	index = 0;
-	while (path_array[index] != NULL)
+	for (index = 0; path_array[index] != NULL; index++)
 	{
 		strcpy(new_path, path_array[index]); /* copy tokens to new path */
 		strcat(new_path, "/"); /* add "/" and command */
@@ -46,9 +43,7 @@ char *storedPath(char *command)
 			free(path);
 			return (new_path);
 		}
-		index++;
 	}
-	free(new_path);
-	free(path);
+	freeall(new_path, path);
 	return (NULL);/* in case of possible errors */
 }
