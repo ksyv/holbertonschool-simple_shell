@@ -2,8 +2,9 @@
 
 /**
  * environPrinter - Prints the environment variables.
+ * Return: 0 succes
  */
-void environPrinter(void)
+int environPrinter(void)
 {
 	char **actualEnvir = environ;
 
@@ -11,4 +12,5 @@ void environPrinter(void)
 	{
 		printf("%s\n", *actualEnvir++);
 	}
+	return (0);
 }

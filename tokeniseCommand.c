@@ -13,7 +13,7 @@ int tokeniseCommand(char *input, __attribute__((unused))size_t inputSize)
 	int index = 0;
 
 	if (strcmp(input, "env") == 0)
-		return (environprinter());
+		return (environPrinter());
 	if (input[0] == 32)
 	{
 		input = NULL;
