@@ -18,14 +18,19 @@ char *storedPath(char *command)
 	if (_getenv("PATH")[0] == ':')
 	{
 		if (stat(command, &buf) == 0) /* in case of success */
+		{
 			return (strdup(command)); /* return a copy of command */
+			free(command);
+		}
 	}
 	while (tokens != NULL)
 	{
-		path_array[index++] = tokens; /* store results of tokens in path_array */
+		path_array[index] = tokens; /* store results of tokens in path_array */
+		index++;
 		tokens = strtok(NULL, ":");
 	}
-	for (index = 0; path_array[index]; index++)
+	index = 0;
+	while (path_array[index] != NULL)
 	{
 		strcpy(new_path, path_array[index]); /* copy tokens to new path */
 		strcat(new_path, "/"); /* add "/" and command */
@@ -36,12 +41,9 @@ char *storedPath(char *command)
 			free(path);
 			return (new_path);
 		}
-		else
-			new_path[0] = 0;
+		index++;
 	}
 	free(path);
 	free(new_path);
-	if (stat(command, &buf) == 0)
-		return (_strdup(command));
 	return (NULL);/* in case of possible errors */
 }
