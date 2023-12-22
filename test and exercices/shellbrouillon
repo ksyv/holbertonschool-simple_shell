@@ -1,0 +1,45 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main(void)
+{
+	size_t counter;
+	size_t sizeForGetLine = 0;
+	char *input = NULL;
+
+	if (isatty(STDIN_FILENO)) /*if interactive*/
+	{
+		char cwd[1024]; /*print current directory and prompt*/
+		if (getcwd(cwd, sizeof(cwd)) == NULL)
+			exit(98);
+		printf("%s$ ", cwd);
+		/*read the user command*/
+		counter = getline(&input, &sizeForGetLine, stdin);
+		if (counter == -1)
+		{
+			free(input);
+			exit(98);
+		}
+		printf("%lu\n", counter);
+		/*split user string in words*/
+		char *token = strtok(input, " ");
+		char *args[10];
+		int arg_count = 0;
+
+		while (token != NULL && arg_count)
+		{
+			args[arg_count] = token;
+			arg_count++;
+			token = strtok(NULL, " ");
+		}
+		args[arg_count] = NULL;
+	}
+	else
+	{
+		/*if not interactive*/
+	}
+}
