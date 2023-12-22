@@ -1,4 +1,4 @@
-## SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manual of Simple Shell"
+## SIMPLE_SHELL 0 "2023-19-12" "Version 1.0" "Manual of Simple Shell"
 .hsh Simple Shell
 simple_shell \- A light command interpretor write in c language.
 
