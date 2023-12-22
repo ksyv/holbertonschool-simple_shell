@@ -1,1 +1,60 @@
-not empty
+## SIMPLE_SHELL 1 "2023-19-12" "Version 1.0" "Manual of Simple Shell"
+.hsh Simple Shell
+simple_shell \- A light command interpretor write in c language.
+
+SYNOPSIS
+simple_shell
+
+## DESCRIPTION
+This program .hsh is a minimal command interpreter write in c language. it provides a command line interface for execut command system.
+
+## OPTIONS
+no options supported.
+
+-----------------------------------------------------------
+
+## Main controls
+
+\cd
+Change the work current directorie. if none directories specified, it moves to the user’s home directory.
+
+
+\exit
+Exit shell with the optionnel statut.
+
+
+\ls
+Files list on the folder.
+
+-----------------------------------------------------------
+
+## UTILISATION
+
+simple_shell
+
+once shell start, you can entry a system command and push the entry button for execut.
+
+-----------------------------------------------------------
+
+## ENVIRONNEMENT
+
+/bin: Contains essential executables used by all system users, including basic shell commands.
+
+
+
+-----------------------------------------------------------
+
+AUTHORS
+The simple shell developed by
+* Kévin VIAIS
+* Esteban GUILLEN
+* Mickaël PERRET
+
+BUGS REPORT
+Please report bugs to [].
+
+LICENCE
+This program is distributed under the terms of the [HOLBERTON-LICENSE]
+
+SEE ALSO
+List of other document
